@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* RedBus-inspired design system. All colors MUST be HSL. */
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 15% 16%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 15% 16%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 16%;
+
+    /* RedBus signature red */
+    --primary: 354 78% 52%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 354 90% 62%;
+    --primary-dark: 354 78% 42%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 15% 16%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 32 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 70% 42%;
+    --success-foreground: 0 0% 100%;
+
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 354 78% 52%;
+
+    --radius: 0.625rem;
+
+    /* Seat colors */
+    --seat-available: 142 35% 92%;
+    --seat-available-border: 142 50% 55%;
+    --seat-selected: 211 100% 50%;
+    --seat-selected-foreground: 0 0% 100%;
+    --seat-booked: 220 10% 75%;
+    --seat-booked-foreground: 220 10% 35%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(354 78% 52%) 0%, hsl(354 90% 62%) 100%);
+    --gradient-header: linear-gradient(180deg, hsl(354 78% 52%) 0%, hsl(354 78% 47%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 99%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(220 15% 16% / 0.05);
+    --shadow-md: 0 4px 12px -2px hsl(220 15% 16% / 0.08);
+    --shadow-lg: 0 10px 30px -5px hsl(220 15% 16% / 0.12);
+    --shadow-primary: 0 8px 24px -8px hsl(354 78% 52% / 0.45);
+
+    /* Transitions */
+    --transition-base: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 0 0% 98%;
+    --card: 220 20% 12%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 20% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 354 78% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 18%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 32 95% 55%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 15% 22%;
+    --input: 220 15% 22%;
+    --ring: 354 78% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .seat {
+    @apply w-10 h-10 rounded-md border-2 flex items-center justify-center text-xs font-medium transition-all cursor-pointer select-none;
+  }
+  .seat-available {
+    background: hsl(var(--seat-available));
+    border-color: hsl(var(--seat-available-border));
+    color: hsl(142 50% 25%);
+  }
+  .seat-available:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .seat-selected {
+    background: hsl(var(--seat-selected));
+    border-color: hsl(var(--seat-selected));
+    color: hsl(var(--seat-selected-foreground));
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+  .seat-booked {
+    background: hsl(var(--seat-booked));
+    border-color: hsl(var(--seat-booked));
+    color: hsl(var(--seat-booked-foreground));
+    cursor: not-allowed;
+  }
+}

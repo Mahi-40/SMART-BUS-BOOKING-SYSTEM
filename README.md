@@ -1,1 +1,3 @@
-# SMART-BUS-BOOKING-SYSTEM
+# Welcome to your Lovable project
+
+TODO: Document your project here
